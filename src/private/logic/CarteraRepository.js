@@ -5,21 +5,19 @@ class carteraRepository {
     constructor() {
         this.conectar = new Conectar();
     }
-
     static getInstance() {
         if (!carteraRepository.instance) {
             carteraRepository.instance = new carteraRepository();
         }
         return carteraRepository.instance;
     }
-
     crearCartera(cartera) {
         try {
             if (!cartera || !cartera.esValido()) {
                 throw new Error("Cartera no válida");
             }   
             const db = this.conectar.obtenerConexion();
-            const sql = 'INSERT INTO Cartera (Nombre, Descripcion, Precio, Stock, Imagen, Fecha_Ingreso) VALUES (?, ?, ?, ?, ?, ?)';
+            const sql = 'INSERT INTO cartera (Nombre, Descripcion, Precio, Stock, Imagen, Fecha_Ingreso) VALUES (?, ?, ?, ?, ?, ?)';
             const stmt = db.prepare(sql);
             const result = stmt.run(
                 cartera.Nombre,
@@ -36,8 +34,6 @@ class carteraRepository {
             throw error;
         }
     }
-
-
     obtenerCarteras() { 
         try {
             const db = this.conectar.obtenerConexion();
@@ -48,7 +44,6 @@ class carteraRepository {
             throw error;
         }
     }
-
     obtenerCarteraPorId(id) {
         try {
             const db = this.conectar.obtenerConexion();
@@ -59,8 +54,6 @@ class carteraRepository {
             throw error;
         }
     }
-
-
     actualizarCartera(cartera) {
         try {
             if (!cartera || !cartera.esValido()) {

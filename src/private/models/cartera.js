@@ -1,5 +1,5 @@
 class Cartera {
-    constructor(CarteraID = 0, Nombre = '', Descripcion = '', Precio = 0.0 , Stock = 0, Imagen = '', Fecha_Ingreso = '') {
+    constructor(CarteraID , Nombre , Descripcion , Precio  , Stock , Imagen , Fecha_Ingreso ) {
         this.CarteraID = CarteraID;
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
@@ -39,3 +39,7 @@ class Cartera {
         )
     }
 }
+
+
+// IMPORTANTE: Esta línea debe estar al final
+module.exports = Cartera;
