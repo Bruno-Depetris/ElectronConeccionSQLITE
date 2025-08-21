@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandria - Gestión de Carteras</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+
+        <p>Versión Node: <span id="veriion"></span></p>
+        <p>Comprobar BD: <span id="comprobarBD"></span></p>
+
+
+        <div class="header-content">
+            <div class="logo">Mandria<span>.</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Stock</a></li>
+                    <li><a href="#">Reportes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="dashboard-section">
+            <div class="card">
+                <div class="card-header">
+                    Estadísticas
+                </div>
+                <div class="card-body">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">42</div>
+                            <div class="stat-label">Productos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">78</div>
+                            <div class="stat-label">En Stock</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Bajo Stock</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Sin Stock</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Acciones Rápidas
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-accent" id="sexoanal" style="width: 100%; margin-bottom: 1rem;">Agregar Cartera</button>
+                    <button class="btn btn-success" style="width: 100%; margin-bottom: 1rem;">Ver Inventario</button>
+                    <button class="btn btn-warning" style="width: 100%;">Generar Reporte</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                Agregar Nueva Cartera
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="product-name">Nombre de la Cartera</label>
+                        <input type="text" id="product-name" class="form-control" placeholder="Ej: Cartera Elegante Negra">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description">Descripción</label>
+                        <textarea id="product-description" class="form-control" rows="3" placeholder="Descripción del producto"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price">Precio</label>
+                        <input type="number" id="product-price" class="form-control" placeholder="Ej: 1999">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-stock">Cantidad en Stock</label>
+                        <input type="number" id="product-stock" class="form-control" placeholder="Ej: 10">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-image">Imagen</label>
+                        <input type="file" id="product-image" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-accent">Guardar Cartera</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="card" style="margin-top: 3rem;">
+            <div class="card-header">
+                Carteras en Stock
+            </div>
+            <div class="card-body">
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/03341346-7c2b-4695-8b0f-7a6a2805b528.png" alt="Cartera de cuero negro con detalle dorado, estilo elegante para oficina" class="product-image"></td>
+                            <td>Cartera Elegante Negra</td>
+                            <td>$1,999</td>
+                            <td>15</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm">Editar</button>
+                                    <button class="btn btn-sm btn-warning">Eliminar</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9356d3df-3cff-4726-b72f-04acf5b52c65.png" alt="Cartera marrón vintage con textura de piel de cocodrilo, diseño clásico" class="product-image"></td>
+                            <td>Cartera Vintage Marrón</td>
+                            <td>$2,499</td>
+                            <td>8</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm">Editar</button>
+                                    <button class="btn btn-sm btn-warning">Eliminar</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/240fcadc-4a30-4205-bbe1-14fbd4fcc045.png" alt="Cartera moderna gris con múltiples compartimientos y cierre metálico" class="product-image"></td>
+                            <td>Cartera Moderna Gris</td>
+                            <td>$1,799</td>
+                            <td>3</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm">Editar</button>
+                                    <button class="btn btn-sm btn-warning">Eliminar</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1b8a6c13-590a-4d7f-b4d1-c84d17a33ea8.png" alt="Cartera roja minimalista con logo grabado, diseño contemporáneo" class="product-image"></td>
+                            <td>Cartera Minimalista Roja</td>
+                            <td>$2,199</td>
+                            <td>0</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm">Editar</button>
+                                    <button class="btn btn-sm btn-warning">Eliminar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        
+    </div>
+
+
+    
+    <script  src="render.js"></script>
+</body>
+
+
+</html>
+
